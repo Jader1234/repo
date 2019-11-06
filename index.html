@@ -1,0 +1,57 @@
+<!doctype html>
+	<html ng-app>
+		<head>
+			<title>Lista de Alunos com AngularJS</title>
+	    <meta charset="utf-8">
+	        <link rel="stylesheet" href="lista-presenca.css">
+	        <script src="https://code.angularjs.org/1.0.1/angular-1.0.1.min.js"></script>
+		</head>
+		<body>
+			<div class="container" ng-controller="ListaAlunosController">
+				<div class="row">
+					<div class="page-header">
+						<h1>Lista de alunos</h1>
+					</div>
+				</div>
+				<div class="row">
+	        <table id="lista-alunos" class="table table-striped">
+	          <thead>
+	            <tr>
+	              <th>Nome</th>
+	              <th>Nota</th>
+	            </tr>
+	          </thead>
+	          <tbody>
+	            <tr ng-repeat="item in itens">
+	              <td><strong>{{ item.Nome }}</strong></td>
+	              <td>{{ item.Nota }}</td>
+	            </tr>
+	          </tbody>
+	        </table>
+				</div>
+	      <div class="row">
+	        <form class="form-inline" name="formItem">
+	          <input type="text" ng-model="item.Nome" placeholder="Nome">
+	          <input type="number" ng-model="item.Nota" placeholder="Nota" class="input-small">
+	          <button class="btn btn-primary" ng-click="adicionaItem()">adicionar ítem</button>
+	        </form>
+	      </div>
+			</div>
+	    </body>
+	    <script>
+	    function ListaAlunosController($scope) {
+	    $scope.itens = [
+	        {Nome: 'João', Nota: 8.0},
+	        {Nome: 'Claudia', Nota: 7.0}
+	    ];
+	
+	    $scope.adicionaItem = function () {
+	        $scope.itens.push({Nome: $scope.item.Nome,
+	                           Nota: $scope.item.Nota,
+	                           comprado: false});
+	        $scope.item.Nome = $scope.item.Nota = '';
+	    };
+	}
+	    </script>
+	</html>
+
