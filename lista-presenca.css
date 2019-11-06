@@ -1,0 +1,13 @@
+
+#lista-alunos {
+	width: 460px;
+	color: blue;
+	text-align: left;
+}
+#lista-alunos td, #lista-alunos th {
+	text-align: left;
+}
+.comprado-true {
+	text-decoration: line-through;
+	color: red;
+}
